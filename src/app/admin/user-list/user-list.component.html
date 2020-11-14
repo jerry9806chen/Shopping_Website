@@ -1,0 +1,24 @@
+<h4>Users:</h4>
+
+<table *ngIf="users.length > 0" class="table">
+    <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td> <a class="delete" (click)="delete(user._id)">Delete</a> <a class="delete" (click)="update(user)">Update</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="users.length === 0" class="alert alert-info" role="info">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Information:</span>
+    The user collection is empty.
+</div>

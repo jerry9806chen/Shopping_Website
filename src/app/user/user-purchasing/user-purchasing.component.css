@@ -1,0 +1,11 @@
+.cart {
+    color: rgb(22, 202, 16) !important;
+    font-weight: bold;
+    cursor: pointer !important;
+}
+
+.wishlist {
+    color: rgb(12, 180, 202) !important;
+    font-weight: bold;
+    cursor: pointer !important;
+}

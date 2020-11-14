@@ -1,0 +1,34 @@
+<h4>Cart:</h4>
+
+<table *ngIf="cartItems.length > 0" class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of cartItems">
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.price }}</td>
+            <td> <a class="delete" (click)="removeFromCart(product)">Remove From Cart</a> <br><a class="wishlist" (click)="moveToWishlist(product)">Move To Wishlist</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="cartItems.length === 0" class="alert alert-info" role="info">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Information:</span>
+    The cart is empty.
+</div>
+
+<br>
+
+<h1>Total: {{ total }}</h1>
+
+<br>
+
+<button class="btn btn-warning" (click)="checkoutMessage()">Checkout</button>

@@ -1,0 +1,26 @@
+<h4>Catalog:</h4>
+
+<table *ngIf="products.length > 0" class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.price }}</td>
+            <td> <a class="cart" (click)="addToCart(product)">Add To Cart</a> <br><a class="wishlist" (click)="addToWishlist(product)">Add To Wishlist</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="products.length === 0" class="alert alert-info" role="info">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Information:</span>
+    The product collection is empty.
+</div>
