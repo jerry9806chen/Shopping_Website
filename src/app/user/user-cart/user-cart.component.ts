@@ -35,6 +35,7 @@ export class UserCartComponent implements OnInit, OnChanges {
   private loadAll() {
     this.cartStrings = this.user.cart;
     this.cartItems = [];
+    this.total = 0;
 
     for (let i = 0; i < this.cartStrings.length; i++) {
       this.productService
@@ -52,7 +53,9 @@ export class UserCartComponent implements OnInit, OnChanges {
           }
         });
     }
-    console.log('implement loadAll for the user cart')
+    this.total = Math.round(this.total * 100) / 100; //console.log('implement loadAll for the user cart')
+    console.log(Math.round(this.total * 100))
+    console.log(Math.round(this.total * 100) / 100)
   }
 
   // Move product to wish list.

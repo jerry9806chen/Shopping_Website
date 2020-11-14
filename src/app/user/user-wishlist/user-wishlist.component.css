@@ -1,0 +1,11 @@
+.delete {
+    color: red !important;
+    font-weight: bold;
+    cursor: pointer !important;
+}
+
+.cart {
+    color: rgb(22, 202, 16) !important;
+    font-weight: bold;
+    cursor: pointer !important;
+}

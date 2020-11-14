@@ -27,9 +27,8 @@ export class CheckoutComponent implements OnInit {
   total: number = 0;
 
   @Input() user: IUser = null;
-  productService: ProductService;
 
-  constructor(protected userService: UserService, protected formBuilder: FormBuilder) { }
+  constructor(protected userService: UserService, protected productService: ProductService, protected formBuilder: FormBuilder) { }
 
   // Hide the error message.
   hideError() {
@@ -57,6 +56,7 @@ export class CheckoutComponent implements OnInit {
   private loadTotal() {
     this.cartStrings = this.user.cart;
     this.cartItems = [];
+    this.total = 0;
 
     for (let i = 0; i < this.cartStrings.length; i++) {
       this.productService

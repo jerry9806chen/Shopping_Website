@@ -39,7 +39,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    /*height: 60px;*/
+    min-height: 60px;
     display: flex;
     align-items: center;
     background-color: #9e19d2;
@@ -308,16 +309,19 @@
 
   <button id="userLogin"  *ngIf="!isLoggedIn()"   class="btn btn-warning" (click)="setMode(7)" style="margin-left:70%">User Login</button>
   <button id="adminLogin" *ngIf="!isLoggedIn()"   class="btn btn-danger"  (click)="setMode(1)">Admin Login</button>
-  <div *ngIf="isAdminLoggedIn()" style="margin-left:50%">
+  <div *ngIf="isAdminLoggedIn()" style="margin-left:40%">
     <button class="btn btn-danger"  (click)="setMode(4)">Add User</button>
     <button class="btn btn-warning" (click)="setMode(4)">Modify Users</button>
     <button class="btn btn-success" (click)="setMode(2)">Add Products</button>
-    <button class="btn btn-info"    (click)="setMode(2)">Modify Products</button>
+    <button class="btn btn-info"    (click)="setMode(2)">Modify Products</button><br>
+    <div><h5>Welcome admin <br> <strong>{{ loggedInAdmin.username }}</strong></h5></div>
   </div>
   <div *ngIf="isUserLoggedIn()" style="margin-left:60%">
     <button class="btn btn-danger" (click)="setMode(8)">View Catalog</button>
     <button class="btn btn-warning" (click)="setMode(9)">View Cart</button>
-    <button class="btn btn-success" (click)="setMode(10)">View Wishlist</button>
+    <button class="btn btn-success" (click)="setMode(10)">View Wishlist</button><br>
+    <div><h5>Welcome user <strong>{{ loggedInUser.username }}</strong></h5></div>
+    <div><h5>Cart: <strong>{{ loggedInUser.cart.length }}</strong></h5></div>
   </div>
   <button id="logout" *ngIf="isLoggedIn()" class="btn btn-secondary"  (click)="logout()">Logout</button>
 </div>
