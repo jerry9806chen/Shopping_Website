@@ -33,7 +33,8 @@ export class UserRegistrationComponent implements OnInit {
     this.success = false;
     this.error = false;
     this.userService.getOne(user).then((result1) => {
-      if (result1 === undefined) {//console.log(true)
+      console.log(result1)
+      if (result1 === undefined || result1 === null) {//console.log(true)
         this.userService.create(user).then((result: IUser) => {//console.log(result)
           if (result === undefined || !result.username || !result.password || !result._id) {
             console.log('we got a problem')
