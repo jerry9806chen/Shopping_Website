@@ -41,15 +41,21 @@ export class UserCartComponent implements OnInit, OnChanges {
       this.productService
         .getOne(new Product(null, null, null, this.cartStrings[i]))
         .then((result: IProduct) => {
-          this.cartItems.push(result);
-          if (typeof result.price === "number")
-            this.total += result.price;
-          else if (typeof result.price === "string") {
-            try{
-              this.total += parseFloat(result.price)
-            } catch (e) {
-              
+          if (result !== undefined && result !== null) {
+            console.log('valid item')
+            this.cartItems.push(result);
+            if (typeof result.price === "number")
+              this.total += result.price;
+            else if (typeof result.price === "string") {
+              try{
+                this.total += parseFloat(result.price)
+              } catch (e) {
+                
+              }
             }
+          } else {
+            console.log('invalid item')
+            this.cartItems.push(new Product(null, null, null, this.cartStrings[i]))
           }
         });
     }

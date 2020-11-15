@@ -38,7 +38,14 @@ export class UserWishlistComponent implements OnInit, OnChanges {
       this.productService
         .getOne(new Product(null, null, null, this.wishlistStrings[i]))
         .then((result: IProduct) => {
-          this.wishlistItems.push(result);
+          //this.wishlistItems.push(result);
+          if (result !== undefined && result !== null) {
+            console.log('valid item')
+            this.wishlistItems.push(result);
+          } else {
+            console.log('invalid item');
+            this.wishlistItems.push(new Product(null, null, null, this.wishlistStrings[i]))
+          }
         });
     }
     console.log('implement loadAll for the user wishlist')
